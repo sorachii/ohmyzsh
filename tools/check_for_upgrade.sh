@@ -24,7 +24,7 @@ function update_last_updated_file() {
 }
 
 function update_ohmyzsh() {
-  ZSH="$ZSH" zsh -f "$ZSH/tools/upgrade.sh" --interactive
+  ZSH="$ZSH" zsh -f "$ZSH/tools/upgrade.sh"
   update_last_updated_file
 }
 

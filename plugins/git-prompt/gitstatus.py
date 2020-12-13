@@ -11,11 +11,11 @@ def get_tagname_or_hash():
     """return tagname if exists else hash"""
     # get hash
     hash_cmd = ['git', 'rev-parse', '--short', 'HEAD']
-    hash_ = check_output(hash_cmd).decode('utf-8').strip()
+    hash_ = check_output(hash_cmd).strip()
 
     # get tagname
     tags_cmd = ['git', 'for-each-ref', '--points-at=HEAD', '--count=2', '--sort=-version:refname', '--format=%(refname:short)', 'refs/tags']
-    tags = check_output(tags_cmd).decode('utf-8').split()
+    tags = check_output(tags_cmd).split()
 
     if tags:
         return tags[0] + ('+' if len(tags) > 1 else '')
